@@ -3,8 +3,8 @@ net Accounts
 net localgroup administrators
 net use
 net share
-net group "domain admins" /domain
-net config workstation
+::net group "domain admins" /domain
+::net config workstation
 ::net accounts
 ::net accounts /domain
 ::net view
