@@ -5,8 +5,8 @@ net use
 net share
 net group "domain admins" /domain
 net config workstation
-net accounts
-net accounts /domain
+::net accounts
+::net accounts /domain
 ::net view
 ::sc query
 reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows"
