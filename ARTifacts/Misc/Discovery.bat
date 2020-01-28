@@ -40,5 +40,5 @@ ipconfig /displaydns
 route print
 netsh advfirewall show allprofiles
 systeminfo
-qwinsta
+:: qwinsta
 quser
