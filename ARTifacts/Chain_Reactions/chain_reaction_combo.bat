@@ -90,5 +90,5 @@ for /R c: %%f in (*.docx) do copy %%f c:\temp\
 :: Tactic: Exfiltration
 :: Technique: Data Compressed: https://attack.mitre.org/wiki/Technique/T1002
 
-cmd.exe /c powershell.exe Compress-Archive -Path C:\temp\* -CompressionLevel Optimal -DestinationPath C:\temp\allthedataz.zip ; Import-Module C:\AtomicRedTeam\execution-frameworks\Invoke-AtomicRedTeam\Invoke-AtomicRedTeam\Invoke-AtomicRedTeam.psm1 ; Invoke-AtomicTest T1086, T1087, T1010, T1217, T1018, T1063
+cmd.exe /c powershell.exe Compress-Archive -Force -Path C:\temp\* -CompressionLevel Optimal -DestinationPath C:\temp\allthedataz.zip ; Import-Module C:\AtomicRedTeam\execution-frameworks\Invoke-AtomicRedTeam\Invoke-AtomicRedTeam\Invoke-AtomicRedTeam.psm1 ; Invoke-AtomicTest T1086 ; Invoke-AtomicTest T1087 ; Invoke-AtomicTest T1010 ; Invoke-AtomicTest T1217 ; Invoke-AtomicTest T1018 ; Invoke-AtomicTest T1063
 
